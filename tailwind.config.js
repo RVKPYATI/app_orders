@@ -19,6 +19,9 @@ module.exports = {
         badgeLight: "#F68181",
         badgeLightHover: "#CE5959",
       },
+      backgroundImage: {
+        taxi: "url('/taxi.jpg')",
+      },
       animation: {
         rotation: "rotation 5s linear infinite",
       },

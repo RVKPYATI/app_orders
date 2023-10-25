@@ -2,26 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply font-inter;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  /* NAVBAR */
+  .navbar {
+    @apply fixed flex h-12 w-full items-center justify-center bg-primary text-baseColor;
+  }
+
+  .app__title {
+  @apply w-full text-center text-xl font-bold leading-none tracking-wider;
+  }
+
+  .menu {
+  @apply absolute inset-0 w-10 cursor-pointer pl-4 pt-3;
+  }
+
+  .menu__link {
+    @apply flex gap-4 absolute left-4 top-14 z-50 w-44 h-20 items-center justify-center rounded-lg hover:border-l-4 hover:border-redBadge bg-primary px-5 py-7 font-inter text-2xl font-normal text-baseColor shadow-lg hover:bg-primaryHover leading-none;
+  }
+
+  .menu__sign {
+  @apply duration-300 hover:scale-110 hover:text-badgeLight
+  }
+
+  /* BUTTON */
+  .btn {
+  @apply w-44 h-16 px-5 py-5 bg-primary hover:bg-primaryHover
+  text-baseColor rounded-lg text-2xl font-normal leading-none hover:border-l-4 hover:border-redBadge;
+  }
 }
