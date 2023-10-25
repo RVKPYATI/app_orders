@@ -11,7 +11,7 @@ export function BtnGroup() {
   ];
 
   return (
-    <div className="btn_group flex w-full items-center justify-between bg-baseColor/0">
+    <div className="btn_group flex w-full items-center justify-around bg-baseColor/0">
       {buttons.map(btn => (
         <BtnComponent
           btn={btn}

@@ -21,7 +21,7 @@
     @apply fixed flex h-12 w-full items-center justify-center bg-primary text-baseColor;
   }
 
-  .app__title {
+  .navbar__title {
   @apply w-full text-center text-xl font-bold leading-none tracking-wider;
   }
 

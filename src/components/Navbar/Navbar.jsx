@@ -4,7 +4,7 @@ export function Navbar() {
   return (
     <nav className="navbar">
       <Menu />
-      <h1 className="app__title">ЗАЯВКИ</h1>
+      <h1 className="navbar__title">ЗАЯВКИ</h1>
     </nav>
   );
 }
