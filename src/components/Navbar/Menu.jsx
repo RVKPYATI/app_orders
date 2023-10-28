@@ -32,10 +32,11 @@ export function Menu() {
             href="https://ya.ru"
             target="_blank"
             rel="noopener noreferer"
+            className="z-50"
           >
             <div className="menu__link">
               <BookText />
-              <p className="text-2xl font-normal leading-none">Отчеты</p>
+              <p className="z-50 text-2xl font-normal leading-none">Отчеты</p>
             </div>
           </a>
         </>

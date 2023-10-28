@@ -11,7 +11,7 @@
 
 @layer base {
   body {
-    @apply font-inter;
+    @apply relative font-inter;
   }
 }
 
@@ -22,24 +22,24 @@
   }
 
   .navbar__title {
-  @apply w-full text-center text-xl font-bold leading-none tracking-wider;
+    @apply w-full text-center text-xl font-bold leading-none tracking-wider;
   }
 
   .menu {
-  @apply absolute inset-0 w-10 cursor-pointer pl-4 pt-3;
+    @apply absolute inset-0 w-10 cursor-pointer pl-4 pt-3;
   }
 
   .menu__link {
-    @apply flex gap-4 absolute left-4 top-14 z-50 w-44 h-20 items-center justify-center rounded-lg hover:border-l-4 hover:border-redBadge bg-primary px-5 py-7 font-inter text-2xl font-normal text-baseColor shadow-lg hover:bg-primaryHover leading-none;
+    @apply absolute left-4 top-14 z-50 flex h-16 w-44 items-center justify-center gap-4 rounded-lg bg-primary px-5 py-7 font-inter text-2xl font-normal leading-none text-baseColor shadow-lg hover:border-l-4 hover:border-redBadge hover:bg-primaryHover;
   }
 
   .menu__sign {
-  @apply duration-300 hover:scale-110 hover:text-badgeLight
+    @apply duration-300 hover:scale-110 hover:text-badgeLight;
   }
 
   /* BUTTON */
   .btn {
-  @apply w-44 h-16 px-5 py-5 bg-primary hover:bg-primaryHover
-  text-baseColor rounded-lg text-2xl font-normal leading-none hover:border-l-4 hover:border-redBadge;
+    @apply h-16 w-44 rounded-lg bg-primary px-5 py-5
+  text-2xl font-normal leading-none text-baseColor transition-all duration-75 hover:border-l-4 hover:border-redBadge hover:bg-primaryHover;
   }
 }

@@ -1,6 +1,9 @@
-export function Button({ title = "", style = "", children }) {
+export function Button({ title = "", style = "", children, onClick }) {
   return (
-    <button className={`btn ${style}`}>
+    <button
+      className={`btn ${style}`}
+      onClick={onClick}
+    >
       {title}
       {children}
     </button>
