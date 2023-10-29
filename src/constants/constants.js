@@ -1,4 +1,4 @@
-export const timeRange = ["09", "12", "15", "18", "21", "23"];
+export const timeRange = ["06", "09", "12", "15", "18", "21", "23"];
 
 export const orders = [
   {
@@ -514,8 +514,13 @@ export const orders = [
     status: "Отменен",
   },
 ];
-
 export const statuses = ["Получен", "Выполнен", "Отменен"];
+
+export const statusesWithIcons = {
+  Получен: "❓",
+  Выполнен: "✅",
+  Отменен: "⛔️",
+};
 
 export const buttons = [
   { src: "/logo.png", link: "", alt: "logo" },

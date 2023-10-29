@@ -45,7 +45,7 @@ export function MainGroup() {
         <MainTable
           days={selectedDays}
           filteredOrders={filteredOrders}
-          main={setFirstScreen}
+          mainWindow={setFirstScreen}
         />
       )}
     </>
