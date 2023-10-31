@@ -1,3 +1,5 @@
+import { CheckCircle, HelpCircle, XCircle } from "lucide-react";
+
 export const timeRange = ["06", "09", "12", "15", "18", "21", "23"];
 
 export const orders = [
@@ -159,7 +161,7 @@ export const orders = [
     name: "",
     phone: "+7 922 802-34-77",
     comment: "Вылет в 05:00, сумка",
-    status: "Получен",
+    status: "Выполнен",
   },
   {
     order_id:
@@ -191,7 +193,7 @@ export const orders = [
     name: "Аделина",
     phone: "+79373541735",
     comment: "Вылет в 19:00, небольшой портфель ",
-    status: "Получен",
+    status: "Отменен",
   },
   {
     order_id:
@@ -239,7 +241,7 @@ export const orders = [
     name: "Анастасия",
     phone: "89697475488",
     comment: "",
-    status: "Получен",
+    status: "Отменен",
   },
   {
     order_id:
@@ -517,6 +519,30 @@ export const orders = [
 export const statuses = ["Получен", "Выполнен", "Отменен"];
 
 export const statusesWithIcons = {
+  Получен: (
+    <HelpCircle
+      color={"blue"}
+      size={20}
+      className={"mt-1"}
+    />
+  ),
+  Выполнен: (
+    <CheckCircle
+      color={"green"}
+      size={20}
+      className={"mt-1"}
+    />
+  ),
+  Отменен: (
+    <XCircle
+      color={"red"}
+      size={20}
+      className={"mt-1"}
+    />
+  ),
+};
+
+export const statusesWithIconsCopy = {
   Получен: "❓",
   Выполнен: "✅",
   Отменен: "⛔️",
@@ -528,3 +554,5 @@ export const buttons = [
   { src: "/telegram.png", link: "", alt: "telegram" },
   { src: "/whatsapp.png", link: "", alt: "whatsapp" },
 ];
+
+export const direction = ["Оренбург-Уфа", "Уфа-Оренбург"];

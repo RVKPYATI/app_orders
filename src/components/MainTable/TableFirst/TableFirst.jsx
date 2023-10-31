@@ -1,3 +1,5 @@
+"use client";
+
 import { timeRange } from "@/constants/constants";
 
 import { TableFirstRow } from "./TableFirstRow";
@@ -12,14 +14,13 @@ export function TableFirst({ filteredOrders, day }) {
       <Direction />
       <table className="mb-2 w-[68%] table-fixed text-xs font-light">
         <HeaderColumn />
-        <tbody className="">
+        <tbody>
           {filteredOrdersByDay.length > 0 ? (
             timeRange.map((time, i) => (
               <TableFirstRow
-                key={time + "header_column" + time}
+                key={i}
                 orders={filteredOrdersByDay}
                 time={time}
-                i={i}
               />
             ))
           ) : (
@@ -53,15 +54,9 @@ function HeaderColumn() {
     <thead>
       <tr className="w-[68%] bg-indigo-300">
         <th className="py-2 leading-none">Количество</th>
-        <th className="border-borderColor border-l border-r py-2 leading-none">
-          Статусы
-        </th>
-        <th className="border-borderColor w-20 border-l border-r py-2 leading-none">
-          Диапазон
-        </th>
-        <th className="border-borderColor border-l border-r py-2 leading-none">
-          Количество
-        </th>
+        <th className="table__header">Статусы</th>
+        <th className="table__header w-20">Диапазон</th>
+        <th className="table__header">Количество</th>
         <th className="py-2 leading-none">Статусы</th>
       </tr>
     </thead>
@@ -70,7 +65,7 @@ function HeaderColumn() {
 
 function NoOrders() {
   return (
-    <tr className="bg-indigo-100 text-center">
+    <tr className="bg-baseColor text-center">
       <td
         colSpan="5"
         className="py-2 leading-none"

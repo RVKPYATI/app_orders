@@ -37,9 +37,16 @@
     @apply duration-300 hover:scale-110 hover:text-badgeLight;
   }
 
+  /* TABLE */
+  .table__header {
+    @apply border-l border-r border-borderColor py-2 leading-none;
+  }
+  .table__cell {
+    @apply border-l border-r border-borderColor;
+  }
+
   /* BUTTON */
   .btn {
-    @apply h-16 w-44 rounded-lg bg-primary px-5 py-5
-  text-2xl font-normal leading-none text-baseColor transition-all duration-75 hover:border-l-4 hover:border-redBadge hover:bg-primaryHover;
+    @apply h-16 w-44 rounded-lg bg-primary px-5 py-5 text-2xl font-normal leading-none text-baseColor transition-all duration-75 hover:border-l-4 hover:border-redBadge  hover:bg-primaryHover;
   }
 }

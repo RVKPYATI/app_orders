@@ -17,3 +17,7 @@ export function getStatusIcon(sts) {
   );
   return statusesIcons;
 }
+
+export function getStatuses(sts) {
+  return sts.map(order => order.status).join(" ");
+}
