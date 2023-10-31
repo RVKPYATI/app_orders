@@ -18,6 +18,7 @@ export const createOrders = async body => {
 
 export const createOrder = async data => {
   try {
+    const results = [];
     const dataMany = await prisma.orders.findMany({
       where: {
         order_id: data.order_id,
@@ -27,7 +28,7 @@ export const createOrder = async data => {
     const unicData = findUniqueObjects(data, dataMany);
 
     if (unicData.length === 0) {
-      return console.log(`Новых объектов не найдено`);
+      console.log(`Новых объектов не найдено`);
     }
 
     for (let i of unicData) {
@@ -35,8 +36,9 @@ export const createOrder = async data => {
         data: i,
       });
       console.log(`Объект id ${result.id} добавлен в базу`);
-      return result;
+      results.push(result);
     }
+    return results;
   } catch (error) {
     console.log(`Произошла ошибка createOrders ${error.message}`);
   } finally {
