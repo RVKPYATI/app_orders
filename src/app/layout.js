@@ -1,11 +1,12 @@
 import { Inter, Irish_Grover } from "next/font/google";
 
+import { Navbar } from "@/components/Navbar/Navbar";
+
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
   variable: "--font-inter",
 });
 
@@ -26,7 +27,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${irish.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${irish.variable}`}>
+        <div className="wrapper bg-[url('/taxi.jpg')] bg-cover bg-center bg-repeat">
+          <div className="overlay bg-black/50">
+            <Navbar />
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
