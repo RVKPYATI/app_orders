@@ -9,7 +9,8 @@ export function TableFirst({ filteredOrders, day }) {
   // console.log("dayString", dayString);
   // console.log("day", day);
   const filteredOrdersByDay = filteredOrders.filter(
-    order => format(order.date, "dd-MM-yyyy") === format(day, "dd-MM-yyyy"),
+    order =>
+      format(new Date(order.date), "dd-MM-yyyy") === format(day, "dd-MM-yyyy"),
   );
   return (
     <>

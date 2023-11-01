@@ -82,7 +82,9 @@ export function Calendar({ days, selectDays, orders, main }) {
 
   function countTripsForDate(date) {
     return orders.filter(
-      order => format(order.date, "dd-MM-yyyy") === format(date, "dd-MM-yyyy"),
+      order =>
+        format(new Date(order.date), "dd-MM-yyyy") ===
+        format(date, "dd-MM-yyyy"),
     ).length;
   }
 
@@ -195,7 +197,7 @@ export function Calendar({ days, selectDays, orders, main }) {
 
                 <div className="absolute -right-1 -top-1 mx-auto">
                   {orders.some(order =>
-                    isSameDay(startOfDay(order.date), day),
+                    isSameDay(startOfDay(new Date(order.date)), day),
                   ) && (
                     <div className="flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] leading-none text-white">
                       {/* {countTripsForDate(format(day, "yyyy-MM-dd"))} */}

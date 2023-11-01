@@ -4,6 +4,7 @@ import { ru } from "date-fns/locale";
 import { statuses } from "@/constants/constants";
 
 export function Stata({ orders, filteredOrders }) {
+  console.log("statuses", statuses);
   const today = format(startOfToday(), "d MMMM", { locale: ru });
   const todayDay = today.split(" ")[0];
   const todayMoth = today.split(" ")[1];
