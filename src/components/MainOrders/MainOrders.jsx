@@ -5,6 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useSWR from "swr";
 
+import { ORDERS_URI } from "@/constants/constants";
+
 import { fetcher } from "@/utils/helpers";
 
 import { MainGroup } from "../(MainGroup)/MainGroup";
@@ -15,7 +17,7 @@ export function MainOrders() {
   const notify = user =>
     toast.success(`Новый заказ от ${user.name} ${user.phone}`);
 
-  const { data } = useSWR("/api", fetcher);
+  const { data } = useSWR(ORDERS_URI, fetcher);
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
