@@ -3,7 +3,7 @@ import { CheckCircle, HelpCircle, XCircle } from "lucide-react";
 export const timeRange = ["06", "09", "12", "15", "18", "21", "23"];
 
 export const GOOGLE_SHEATS_URI =
-  "https://script.google.com/macros/s/AKfycbwAOKVD8BgDmItjzafp-aCmdvrxA5p2N0XkYOFrJd7kNSG6elgSa1Vbjl0kjhyAU25g/exec";
+  "https://script.google.com/macros/s/AKfycbyTz_Suw9C4Fo-fX_fxz8Lps7Tqvel5ZkHg3bYOkeKhidW4lz_xI8ferWqoPsrPY94C/exec";
 
 export const statuses = ["RECEIVED", "COMPLETED", "CANCELED"];
 

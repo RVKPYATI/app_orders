@@ -11,7 +11,6 @@ import { MainTable } from "@/components/MainTable/MainTable";
 //import { orders } from "@/constants/constants";
 
 export function MainGroup({ orders }) {
-  console.log(orders);
   const today = startOfToday();
   const [selectedDays, setSelectedDays] = useState([today]);
   const [firstScreen, setFirstScreen] = useState(true);
