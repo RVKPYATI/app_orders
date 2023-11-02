@@ -38,6 +38,10 @@
   }
 
   /* TABLE */
+  .table {
+    @apply border border-borderColor;
+  }
+
   .table__header {
     @apply border-l border-r border-borderColor py-2 leading-none;
   }
@@ -47,6 +51,10 @@
 
   /* BUTTON */
   .btn {
-    @apply h-16 w-44 rounded-lg bg-primary px-5 py-5 text-2xl font-normal leading-none text-baseColor transition-all duration-75 hover:border-l-4 hover:border-redBadge  hover:bg-primaryHover;
+    @apply h-16 w-44 rounded-lg bg-primary px-5 py-5 text-2xl font-normal leading-none text-baseColor transition-all duration-75 hover:border-l-4 hover:border-redBadge  hover:bg-primaryHover disabled:border-none disabled:bg-gray-400 disabled:text-gray-500;
+  }
+
+  .btn__cell {
+    @apply h-10 w-20 rounded-md bg-primary px-1 text-sm font-extralight text-baseColor hover:border-l-4 hover:border-redBadge hover:bg-primaryHover disabled:border-none disabled:bg-gray-400 disabled:text-gray-500;
   }
 }

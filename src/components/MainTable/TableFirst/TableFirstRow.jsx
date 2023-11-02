@@ -1,19 +1,11 @@
 "use client";
 
-import { useState } from "react";
-
-import { Modal } from "@/ui/Modal/Modal";
-
 import { direction } from "@/constants/constants";
 
 import { getStatusIcon, getStatuses } from "@/utils/helpers";
 
-export function TableFirstRow({ orders, time }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const filteredOrdersByTime = orders.filter(
-    order => order.time.split(":")[0] === time,
-  );
+export function TableFirstRow({ orders, time, setModal, setData, indx }) {
+  const filteredOrdersByTime = orders.filter(order => order.time === time);
   const filteredOrdersByTimeLeft = filteredOrdersByTime.filter(
     order => order.direction === direction[0],
   );
@@ -21,121 +13,96 @@ export function TableFirstRow({ orders, time }) {
     order => order.direction === direction[1],
   );
 
-  const openModal = ordersModal => {
-    setIsModalOpen(true);
-    console.log(ordersModal);
+  const handleClick = ordersModal => {
+    setModal(true);
+    setData(ordersModal);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleClickLeft = orders => {
-    openModal(orders);
-  };
-  const handleClickRight = orders => {
-    openModal(orders);
-  };
-
-  if (filteredOrdersByTime.length === 0) return <EmptyRow time={time} />;
+  if (filteredOrdersByTime.length === 0)
+    return (
+      <EmptyRow
+        key={"empty" + time}
+        time={time}
+      />
+    );
 
   return (
-    <>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-      ></Modal>
-      <tr
-        className="text-center text-base font-bold odd:bg-white even:bg-slate-200"
-        key={time + "row" + time}
-        // onClick={handleClickLeft}
-      >
-        {/* <RowLeft
-          time={time}
-          ordersLeft={filteredOrdersByTimeLeft}
-          key={"left" + time}
-          onClickRow={handleClickLeft}
-          ref={refLeft}
-        /> */}
-        {filteredOrdersByTimeLeft.length === 0 && <EmptyCell />}
-        {filteredOrdersByTimeLeft.length === 1 && (
-          <>
-            <td
-              className="table__cell cursor-pointer font-irish text-base"
-              onClick={() => handleClickLeft(filteredOrdersByTimeLeft)}
-            >
-              {filteredOrdersByTimeLeft.length}
-            </td>
-            <td
-              className="flex cursor-pointer items-center justify-center gap-1"
-              onClick={() => handleClickLeft(filteredOrdersByTimeLeft)}
-            >
-              {getStatusIcon(filteredOrdersByTimeLeft[0].status)}
-            </td>
-          </>
-        )}
-        {filteredOrdersByTimeLeft.length > 1 && (
-          <>
-            <td
-              className="table__cell cursor-pointer font-irish text-base"
-              onClick={() => handleClickLeft(filteredOrdersByTimeLeft)}
-            >
-              {filteredOrdersByTimeLeft.length}
-            </td>
-            <td
-              className="flex cursor-pointer items-center justify-center gap-1"
-              onClick={() => handleClickLeft(filteredOrdersByTimeLeft)}
-            >
-              {getStatusIcon(getStatuses(filteredOrdersByTimeLeft))}
-            </td>
-          </>
-        )}
+    <tr
+      className="text-center text-base font-bold odd:bg-white even:bg-slate-200"
+      key={time + "row" + indx}
+    >
+      {filteredOrdersByTimeLeft.length === 0 && <EmptyCell />}
+      {filteredOrdersByTimeLeft.length === 1 && (
+        <>
+          <td
+            className="table__cell cursor-pointer font-irish text-base"
+            onClick={() => handleClick(filteredOrdersByTimeLeft)}
+          >
+            {filteredOrdersByTimeLeft.length}
+          </td>
+          <td
+            className="flex cursor-pointer items-center justify-center gap-1"
+            onClick={() => handleClick(filteredOrdersByTimeLeft)}
+          >
+            {getStatusIcon(filteredOrdersByTimeLeft[0].status)}
+          </td>
+        </>
+      )}
+      {filteredOrdersByTimeLeft.length > 1 && (
+        <>
+          <td
+            className="table__cell cursor-pointer font-irish text-base"
+            onClick={() => handleClick(filteredOrdersByTimeLeft)}
+          >
+            {filteredOrdersByTimeLeft.length}
+          </td>
+          <td
+            className="flex cursor-pointer items-center justify-center gap-1"
+            onClick={() => handleClick(filteredOrdersByTimeLeft)}
+          >
+            {getStatusIcon(getStatuses(filteredOrdersByTimeLeft))}
+          </td>
+        </>
+      )}
 
-        <td className="table__cell cursor-pointer text-center font-irish text-lg">
-          {time}
-        </td>
+      <td className="table__cell cursor-pointer text-center font-irish text-lg">
+        {time}
+      </td>
 
-        {filteredOrdersByTimeRight.length === 0 && <EmptyCell />}
-        {filteredOrdersByTimeRight.length === 1 && (
-          <>
-            <td
-              className="table__cell cursor-pointer font-irish text-base"
-              onClick={() => handleClickRight(filteredOrdersByTimeRight)}
-            >
-              {filteredOrdersByTimeRight.length}
-            </td>
-            <td
-              className="flex cursor-pointer items-center justify-center gap-1"
-              onClick={() => handleClickRight(filteredOrdersByTimeRight)}
-            >
-              {getStatusIcon(filteredOrdersByTimeRight[0].status)}
-            </td>
-          </>
-        )}
-        {filteredOrdersByTimeRight.length > 1 && (
-          <>
-            <td
-              className="table__cell cursor-pointer font-irish text-base"
-              onClick={() => handleClickRight(filteredOrdersByTimeRight)}
-            >
-              {filteredOrdersByTimeRight.length}
-            </td>
-            <td
-              className="flex cursor-pointer items-center justify-center gap-1"
-              onClick={() => handleClickRight(filteredOrdersByTimeRight)}
-            >
-              {getStatusIcon(getStatuses(filteredOrdersByTimeRight))}
-            </td>
-          </>
-        )}
-        {/* <RowRigth
-          time={time}
-          ordersRight={filteredOrdersByTimeRight}
-          key={time + "right" + time}
-          ref={refRight}
-        /> */}
-      </tr>
-    </>
+      {filteredOrdersByTimeRight.length === 0 && <EmptyCell />}
+      {filteredOrdersByTimeRight.length === 1 && (
+        <>
+          <td
+            className="table__cell cursor-pointer font-irish text-base"
+            onClick={() => handleClick(filteredOrdersByTimeRight)}
+          >
+            {filteredOrdersByTimeRight.length}
+          </td>
+          <td
+            className="flex cursor-pointer items-center justify-center gap-1"
+            onClick={() => handleClick(filteredOrdersByTimeRight)}
+          >
+            {getStatusIcon(filteredOrdersByTimeRight[0].status)}
+          </td>
+        </>
+      )}
+      {filteredOrdersByTimeRight.length > 1 && (
+        <>
+          <td
+            className="table__cell cursor-pointer font-irish text-base"
+            onClick={() => handleClick(filteredOrdersByTimeRight)}
+          >
+            {filteredOrdersByTimeRight.length}
+          </td>
+          <td
+            className="flex cursor-pointer items-center justify-center gap-1"
+            onClick={() => handleClick(filteredOrdersByTimeRight)}
+          >
+            {getStatusIcon(getStatuses(filteredOrdersByTimeRight))}
+          </td>
+        </>
+      )}
+    </tr>
   );
 }
 

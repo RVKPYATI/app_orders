@@ -8,12 +8,12 @@ export function getStatusIcon(sts) {
   }
 
   if (statusesArray.length === 1) {
-    return statusesWithIcons[statusesArray.join("")];
+    return statusesWithIcons(20)[statusesArray.join("")];
   }
 
   const statusesArrayUnique = [...new Set(statusesArray)];
   const statusesIcons = statusesArrayUnique.map(
-    status => statusesWithIcons[status],
+    status => statusesWithIcons(20)[status],
   );
   return statusesIcons;
 }

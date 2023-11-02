@@ -1,16 +1,36 @@
 "use client";
 
+import { format } from "date-fns";
+import { useState } from "react";
+
+import { TableFirstRow } from "@/components/MainTable/TableFirst/TableFirstRow";
+import { TableSecond } from "@/components/MainTable/TableSecond/TableSecond";
+
+import { Modal } from "@/ui/Modal/Modal";
+
 import { timeRange } from "@/constants/constants";
 
-import { TableFirstRow } from "./TableFirstRow";
-
 export function TableFirst({ filteredOrders, day }) {
-  const dayString = day.toString();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState(false);
+
   const filteredOrdersByDay = filteredOrders.filter(
-    order => order.date === dayString,
+    order =>
+      format(new Date(order.date), "dd-MM-yyyy") === format(day, "dd-MM-yyyy"),
   );
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      >
+        <TableSecond orders={modalData} />
+      </Modal>
       <Direction />
       <table className="mb-2 w-[68%] table-fixed text-xs font-light">
         <HeaderColumn />
@@ -18,9 +38,13 @@ export function TableFirst({ filteredOrders, day }) {
           {filteredOrdersByDay.length > 0 ? (
             timeRange.map((time, i) => (
               <TableFirstRow
-                key={i}
+                key={`${i} tablerow` + `${time}`}
                 orders={filteredOrdersByDay}
                 time={time}
+                indx={i}
+                setModal={setIsModalOpen}
+                setData={setModalData}
+                modalData={modalData}
               />
             ))
           ) : (

@@ -42,5 +42,6 @@ module.exports = {
       shadowOffsetY: "1px",
       experimental: true,
     }),
+    require("@tailwindcss/forms"),
   ],
 };

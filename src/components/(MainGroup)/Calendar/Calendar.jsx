@@ -48,13 +48,10 @@ export function Calendar({ days, selectDays, orders, main }) {
     locale: ru,
   });
 
-  // const xsdas = orders.map(order => console.log(order.date));
-
   const daysArray = eachDayOfInterval({
     start: firstDayCurrentMonth,
     end: endOfMonth(firstDayCurrentMonth),
   });
-  // console.log(daysArray);
 
   function previousMonth() {
     const firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
@@ -81,7 +78,11 @@ export function Calendar({ days, selectDays, orders, main }) {
   }
 
   function countTripsForDate(date) {
-    return orders.filter(order => order.date === date).length;
+    return orders.filter(
+      order =>
+        format(new Date(order.date), "dd-MM-yyyy") ===
+        format(new Date(date), "dd-MM-yyyy"),
+    ).length;
   }
 
   const currentMonthOnly = format(firstDayCurrentMonth, "MMMM", { locale: ru });
@@ -100,8 +101,9 @@ export function Calendar({ days, selectDays, orders, main }) {
     <div className="flex flex-col items-center pt-2">
       <Button
         title={"Заявки"}
-        style={"mx-auto mb-6"}
+        style={`btn mx-auto mb-6 `}
         onClick={() => main(false)}
+        disabled={days.length > 0 ? false : true}
       />
       <div className="mx-auto max-w-md border-4 border-badgeLight bg-baseColor/80 px-4 shadow-xl sm:px-7 md:max-w-4xl md:px-6">
         <div className="">
@@ -196,7 +198,6 @@ export function Calendar({ days, selectDays, orders, main }) {
                     isSameDay(startOfDay(new Date(order.date)), day),
                   ) && (
                     <div className="flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] leading-none text-white">
-                      {/* {countTripsForDate(format(day, "yyyy-MM-dd"))} */}
                       {countTripsForDate(String(day))}
                     </div>
                   )}

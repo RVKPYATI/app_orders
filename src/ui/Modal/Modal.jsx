@@ -27,7 +27,7 @@ function Modal({ isOpen, onClose, children }) {
     <div className="fixed inset-0 z-40 flex items-center justify-center">
       <div className="fixed inset-0 bg-black opacity-70"></div>
       <div
-        className="z-10 h-[75%] w-[90%] overflow-y-auto rounded-3xl bg-white p-4 shadow-lg"
+        className="z-10 min-h-[70%] w-[90%] overflow-y-auto rounded-3xl bg-baseColor p-4 shadow-lg"
         ref={modalRef}
       >
         <div className="flex justify-end">
