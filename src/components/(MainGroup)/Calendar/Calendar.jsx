@@ -198,7 +198,7 @@ export function Calendar({ days, selectDays, orders, main }) {
                     isSameDay(startOfDay(new Date(order.date)), day),
                   ) && (
                     <div className="flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] leading-none text-white">
-                      {countTripsForDate(String(day))}
+                      {countTripsForDate(day)}
                     </div>
                   )}
                 </div>

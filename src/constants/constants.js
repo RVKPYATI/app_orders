@@ -16,29 +16,31 @@ export const GOOGLE_SHEATS_URI =
 export const ORDERS_URI = "/api/orders";
 export const statuses = ["RECEIVED", "COMPLETED", "CANCELED"];
 
-export const statusesWithIcons = {
-  RECEIVED: (
-    <HelpCircle
-      color={"blue"}
-      size={20}
-      className={"mt-1"}
-    />
-  ),
-  COMPLETED: (
-    <CheckCircle
-      color={"green"}
-      size={20}
-      className={"mt-1"}
-    />
-  ),
-  CANCELED: (
-    <XCircle
-      color={"red"}
-      size={20}
-      className={"mt-1"}
-    />
-  ),
-};
+export function statusesWithIcons(size = 20) {
+  return {
+    RECEIVED: (
+      <HelpCircle
+        color={"blue"}
+        size={size}
+        className={"mt-1"}
+      />
+    ),
+    COMPLETED: (
+      <CheckCircle
+        color={"green"}
+        size={size}
+        className={"mt-1"}
+      />
+    ),
+    CANCELED: (
+      <XCircle
+        color={"red"}
+        size={size}
+        className={"mt-1"}
+      />
+    ),
+  };
+}
 
 export const buttons = [
   { src: "/logo.png", link: "", alt: "logo" },

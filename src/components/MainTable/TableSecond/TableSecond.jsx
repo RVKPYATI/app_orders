@@ -9,7 +9,7 @@ export function TableSecond({ orders }) {
 
   return (
     <div className="modal__wrapper h-full w-full ">
-      <div className="table__title mb-5 flex h-8 w-full items-center justify-between pr-14 text-4xl">
+      <div className="table__title mb-5 flex h-8 w-full items-center justify-evenly pr-14 text-4xl">
         <p>{titleObj?.direction}</p>
         <p className="font-irish text-6xl font-semibold">{titleObj?.time}</p>
         <p>{titleDay}</p>

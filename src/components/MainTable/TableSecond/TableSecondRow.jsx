@@ -11,7 +11,6 @@ export function TableSecondRow({ order }) {
   const cellRef = useRef(null);
 
   const openRadioPopup = () => {
-    console.log(cellRef);
     setIsRadioPopupOpen(true);
   };
 
@@ -68,16 +67,15 @@ export function TableSecondRow({ order }) {
               <div className="flex items-center gap-2">
                 <HelpCircle
                   size={20}
-                  color={"#f7f7f7"}
+                  color={"rgb(59 130 246)"}
                 />
                 <label>Получен</label>
               </div>
               <input
                 type="radio"
                 name="status"
-                value="received"
-                checked={`${order.status === "Получен" && "checked"}`}
-                className="cursor-pointer appearance-none  checked:ring-redBadge indeterminate:bg-gray-300 focus:bg-blue-600"
+                value="RECEIVED"
+                className="form-radio cursor-pointer appearance-none  text-blue-500 checked:ring-blue-500 indeterminate:bg-gray-300 focus:bg-blue-600"
               />
             </div>
             <br />
@@ -85,15 +83,15 @@ export function TableSecondRow({ order }) {
               <div className="flex items-center gap-2">
                 <CheckCircle
                   size={20}
-                  color={"#f7f7f7"}
+                  color={"rgb(74 222 128)"}
                 />
                 <label>Выполнен</label>
               </div>
               <input
                 type="radio"
                 name="status"
-                value="completed"
-                className="checked cursor-pointer checked:ring-redBadge indeterminate:bg-gray-300 focus:bg-green-400"
+                value="COMPLETED"
+                className="form-radio cursor-pointer appearance-none  text-green-400 checked:ring-green-400 indeterminate:bg-gray-300 focus:bg-green-400"
               />
             </div>
             <br />
@@ -101,15 +99,15 @@ export function TableSecondRow({ order }) {
               <div className="flex items-center gap-2">
                 <X
                   size={20}
-                  color={"#f7f7f7"}
+                  color={"rgb(248 113 113)"}
                 />
                 <label>Отменен</label>
               </div>
               <input
                 type="radio"
                 name="status"
-                value="canceled"
-                className="cursor-pointer checked:ring-redBadge indeterminate:bg-gray-300 focus:bg-red-400"
+                value="CANCELED"
+                className="form-radio cursor-pointer appearance-none  text-red-400 checked:ring-red-400 indeterminate:bg-gray-300 focus:bg-red-400"
               />
             </div>
           </div>
