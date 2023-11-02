@@ -27,82 +27,21 @@ export function TableFirstRow({ orders, time, setModal, setData, indx }) {
     );
 
   return (
-    <tr
-      className="text-center text-base font-bold odd:bg-white even:bg-slate-200"
-      key={time + "row" + indx}
-    >
-      {filteredOrdersByTimeLeft.length === 0 && <EmptyCell />}
-      {filteredOrdersByTimeLeft.length === 1 && (
-        <>
-          <td
-            className="table__cell cursor-pointer font-irish text-base"
-            onClick={() => handleClick(filteredOrdersByTimeLeft)}
-          >
-            {filteredOrdersByTimeLeft.length}
-          </td>
-          <td
-            className="flex cursor-pointer items-center justify-center gap-1"
-            onClick={() => handleClick(filteredOrdersByTimeLeft)}
-          >
-            {getStatusIcon(filteredOrdersByTimeLeft[0].status)}
-          </td>
-        </>
-      )}
-      {filteredOrdersByTimeLeft.length > 1 && (
-        <>
-          <td
-            className="table__cell cursor-pointer font-irish text-base"
-            onClick={() => handleClick(filteredOrdersByTimeLeft)}
-          >
-            {filteredOrdersByTimeLeft.length}
-          </td>
-          <td
-            className="flex cursor-pointer items-center justify-center gap-1"
-            onClick={() => handleClick(filteredOrdersByTimeLeft)}
-          >
-            {getStatusIcon(getStatuses(filteredOrdersByTimeLeft))}
-          </td>
-        </>
-      )}
-
-      <td className="table__cell cursor-pointer text-center font-irish text-lg">
-        {time}
-      </td>
-
-      {filteredOrdersByTimeRight.length === 0 && <EmptyCell />}
-      {filteredOrdersByTimeRight.length === 1 && (
-        <>
-          <td
-            className="table__cell cursor-pointer font-irish text-base"
-            onClick={() => handleClick(filteredOrdersByTimeRight)}
-          >
-            {filteredOrdersByTimeRight.length}
-          </td>
-          <td
-            className="flex cursor-pointer items-center justify-center gap-1"
-            onClick={() => handleClick(filteredOrdersByTimeRight)}
-          >
-            {getStatusIcon(filteredOrdersByTimeRight[0].status)}
-          </td>
-        </>
-      )}
-      {filteredOrdersByTimeRight.length > 1 && (
-        <>
-          <td
-            className="table__cell cursor-pointer font-irish text-base"
-            onClick={() => handleClick(filteredOrdersByTimeRight)}
-          >
-            {filteredOrdersByTimeRight.length}
-          </td>
-          <td
-            className="flex cursor-pointer items-center justify-center gap-1"
-            onClick={() => handleClick(filteredOrdersByTimeRight)}
-          >
-            {getStatusIcon(getStatuses(filteredOrdersByTimeRight))}
-          </td>
-        </>
-      )}
-    </tr>
+    <>
+      <tr className="text-center text-base font-bold odd:bg-white even:bg-slate-200">
+        <RowLeft
+          time={time}
+          ordersLeft={filteredOrdersByTimeLeft}
+        />
+        <td className="border-r border-borderColor text-center font-irish text-lg">
+          {time}
+        </td>
+        <RowRigth
+          time={time}
+          ordersRight={filteredOrdersByTimeRight}
+        />
+      </tr>
+    </>
   );
 }
 

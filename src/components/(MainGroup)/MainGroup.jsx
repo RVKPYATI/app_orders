@@ -8,18 +8,21 @@ import { Calendar } from "@/components/(MainGroup)/Calendar/Calendar";
 import { Stata } from "@/components/(MainGroup)/Stata/Stata";
 import { MainTable } from "@/components/MainTable/MainTable";
 
-import { orders } from "@/constants/constants";
+//import { orders } from "@/constants/constants";
 
-export function MainGroup() {
+export function MainGroup({ orders }) {
   const today = startOfToday();
   const [selectedDays, setSelectedDays] = useState([today]);
   const [firstScreen, setFirstScreen] = useState(true);
 
   const filteredOrders = orders.filter(order => {
     const orderDate = startOfDay(new Date(order.date));
+
     const datesStartOfDay = selectedDays.map(day => startOfDay(day));
     return datesStartOfDay.some(day => isSameDay(orderDate, day));
   });
+
+  //console.log("filteredOrders", filteredOrders);
 
   return (
     <>

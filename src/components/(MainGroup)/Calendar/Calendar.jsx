@@ -81,7 +81,7 @@ export function Calendar({ days, selectDays, orders, main }) {
     return orders.filter(
       order =>
         format(new Date(order.date), "dd-MM-yyyy") ===
-        format(new Date(date), "dd-MM-yyyy"),
+        format(date, "dd-MM-yyyy"),
     ).length;
   }
 

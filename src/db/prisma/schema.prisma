@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Orders {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  order_id String @unique
+  service String
+  seats Int
+  date DateTime
+  time String
+  name String 
+  phone String 
+  direction String
+  place String
+  from String
+  comment String
+  source String
+  status Status @default(RECEIVED) 
+  created DateTime @default(now())
+  updated  DateTime @updatedAt
+  
+}
+
+enum Status {
+  RECEIVED
+  COMPLETED
+  CANCELED
+}
