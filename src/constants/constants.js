@@ -13,7 +13,10 @@ export const timeRange = [
 export const GOOGLE_SHEATS_URI =
   "https://script.google.com/macros/s/AKfycbyTz_Suw9C4Fo-fX_fxz8Lps7Tqvel5ZkHg3bYOkeKhidW4lz_xI8ferWqoPsrPY94C/exec";
 
+// URLs
 export const ORDERS_URI = "/api/orders";
+
+// Statuses
 export const statuses = ["RECEIVED", "COMPLETED", "CANCELED"];
 
 export function statusesWithIcons(size = 20) {

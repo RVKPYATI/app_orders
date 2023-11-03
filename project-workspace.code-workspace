@@ -1,16 +1,6 @@
 {
-  "folders": [
-    {
-      "path": "."
-    }
-  ],
+  "folders": [],
   "settings": {
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "workbench.colorCustomizations": {
       "terminal.background": "#090300",
       "terminal.foreground": "#A5A2A2",
