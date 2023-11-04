@@ -23,6 +23,7 @@ export function MainOrders() {
   useEffect(() => {
     if (data) {
       const { results, orders } = data;
+
       if (results?.length > 0) {
         results.map(order => {
           notify(order);
