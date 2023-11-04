@@ -178,10 +178,10 @@ export function Calendar({ days, selectDays, orders, main }) {
                       "text-gray-400",
                     days.some(d => isSameDay(d, day)) &&
                       isToday(day) &&
-                      "bg-gray-900",
+                      "bg-blue-950",
                     days.some(d => isSameDay(d, day)) &&
                       !isToday(day) &&
-                      "bg-gray-900",
+                      "bg-blue-950",
                     !days.some(d => isSameDay(d, day)) && "hover:bg-gray-200",
                     (days.some(d => isSameDay(d, day)) || isToday(day)) &&
                       "font-semibold",
