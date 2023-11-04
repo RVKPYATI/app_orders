@@ -5,6 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useSWR from "swr";
 
+import { Loader } from "@/ui/Loader/Loader";
+
 import { ORDERS_URI } from "@/constants/constants";
 
 import { fetcher } from "@/utils/helpers";
@@ -32,6 +34,8 @@ export function MainOrders() {
       setOrders(orders);
     }
   }, [data]);
+
+  if (orders.length === 0) return <Loader />;
 
   return (
     <>
