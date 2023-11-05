@@ -20,11 +20,13 @@ export function MainOrders() {
     toast.success(`Новый заказ от ${user.name} ${user.phone}`);
 
   const { data } = useSWR(ORDERS_URI, fetcher);
+  
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     if (data) {
       const { results, orders } = data;
+
       if (results?.length > 0) {
         results.map(order => {
           notify(order);

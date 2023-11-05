@@ -78,7 +78,6 @@ ${order.comment},
         if (response.ok) {
           mutate(ORDERS_URI);
           setStatus(selectedStatus);
-          cellRef.current = null;
         } else {
           console.log("Упс... Что то пошло не так...", response);
         }

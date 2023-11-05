@@ -46,3 +46,9 @@ export function getDateRange() {
     lastDayOfNextMonth: lastDayOfNextMonth,
   };
 }
+
+export function getNameStatuses(status) {
+  if (status === "RECEIVED") return "Получен";
+  if (status === "COMPLETED") return "Выполнен";
+  if (status === "CANCELED") return "Отменен";
+}

@@ -6,6 +6,9 @@ module.exports = {
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    minWidth: {
+      "1/3": "33%",
+    },
     extend: {
       fontFamily: {
         inter: ["var(--font-inter)", "ui-sans-serif"],

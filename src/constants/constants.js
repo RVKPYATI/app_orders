@@ -16,6 +16,7 @@ export const GOOGLE_SHEATS_URI =
 // URLs
 export const ORDERS_URI = "/api/orders";
 
+export const CHAT_ID = "-4010766583";
 // Statuses
 export const statuses = ["RECEIVED", "COMPLETED", "CANCELED"];
 

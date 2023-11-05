@@ -1,6 +1,7 @@
 "use client";
 
 import { AlignJustify, BookText, X } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function Menu() {
@@ -28,8 +29,8 @@ export function Menu() {
             className="menu__sign"
           />
           {/* TODO! сделать ссылку на page reports */}
-          <a
-            href="https://ya.ru"
+          <Link
+            href="/pages/reports/"
             target="_blank"
             rel="noopener noreferer"
             className="z-50"
@@ -38,7 +39,7 @@ export function Menu() {
               <BookText />
               <p className="z-50 text-2xl font-normal leading-none">Отчеты</p>
             </div>
-          </a>
+          </Link>
         </>
       ) : (
         <AlignJustify

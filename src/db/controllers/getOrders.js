@@ -4,14 +4,17 @@ import prisma from "../prismaClient";
 
 const { firstDayOfMonth, lastDayOfNextMonth } = getDateRange();
 
-export const getOrders = async () => {
+export const getOrders = async (dayStart, dayEnd) => {
   try {
     const results = await prisma.orders.findMany({
       where: {
         date: {
-          gte: firstDayOfMonth,
-          lt: lastDayOfNextMonth,
+          gte: dayStart ? new Date(dayStart) : firstDayOfMonth,
+          lt: dayEnd ? new Date(dayEnd) : lastDayOfNextMonth,
         },
+      },
+      orderBy: {
+        date: "desc",
       },
     });
 

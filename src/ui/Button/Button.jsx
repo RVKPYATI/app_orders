@@ -7,9 +7,9 @@ export function Button({
 }) {
   return (
     <button
-      className={`${style}`}
-      onClick={onClick}
       disabled={disabled}
+      className={`btn ${style}`}
+      onClick={onClick}
     >
       {title}
       {children}
