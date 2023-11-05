@@ -9,8 +9,8 @@ export const getOrders = async (dayStart, dayEnd) => {
     const results = await prisma.orders.findMany({
       where: {
         date: {
-          gte: new Date(dayStart) ?? firstDayOfMonth,
-          lt: new Date(dayEnd) ?? lastDayOfNextMonth,
+          gte: dayStart ? new Date(dayStart) : firstDayOfMonth,
+          lt: dayEnd ? new Date(dayEnd) : lastDayOfNextMonth,
         },
       },
       orderBy: {

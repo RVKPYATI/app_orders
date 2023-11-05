@@ -1,30 +1,50 @@
+"use client";
+
 import { format } from "date-fns";
+import { useState } from "react";
+
+import { TableFirstRow } from "@/components/MainTable/TableFirst/TableFirstRow";
+import { TableSecond } from "@/components/MainTable/TableSecond/TableSecond";
+
+import { Modal } from "@/ui/Modal/Modal";
 
 import { timeRange } from "@/constants/constants";
 
-import { TableFirstRow } from "./TableFirstRow";
-
 export function TableFirst({ filteredOrders, day }) {
-  const dayString = day.toString();
-  // console.log("dayString", dayString);
-  // console.log("day", day);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState(false);
+
   const filteredOrdersByDay = filteredOrders.filter(
     order =>
       format(new Date(order.date), "dd-MM-yyyy") === format(day, "dd-MM-yyyy"),
   );
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      >
+        <TableSecond orders={modalData} />
+      </Modal>
       <Direction />
       <table className="mb-2 w-[68%] table-fixed text-xs font-light">
         <HeaderColumn />
-        <tbody className="">
+        <tbody>
           {filteredOrdersByDay.length > 0 ? (
             timeRange.map((time, i) => (
               <TableFirstRow
-                key={time + "header_column" + time}
+                key={`${i} tablerow` + `${time}`}
                 orders={filteredOrdersByDay}
                 time={time}
-                i={i}
+                indx={i}
+                setModal={setIsModalOpen}
+                setData={setModalData}
+                modalData={modalData}
               />
             ))
           ) : (
@@ -58,15 +78,9 @@ function HeaderColumn() {
     <thead>
       <tr className="w-[68%] bg-indigo-300">
         <th className="py-2 leading-none">Количество</th>
-        <th className="border-borderColor border-l border-r py-2 leading-none">
-          Статусы
-        </th>
-        <th className="border-borderColor w-20 border-l border-r py-2 leading-none">
-          Диапазон
-        </th>
-        <th className="border-borderColor border-l border-r py-2 leading-none">
-          Количество
-        </th>
+        <th className="table__header">Статусы</th>
+        <th className="table__header w-20">Диапазон</th>
+        <th className="table__header">Количество</th>
         <th className="py-2 leading-none">Статусы</th>
       </tr>
     </thead>
@@ -75,7 +89,7 @@ function HeaderColumn() {
 
 function NoOrders() {
   return (
-    <tr className="bg-indigo-100 text-center">
+    <tr className="bg-baseColor text-center">
       <td
         colSpan="5"
         className="py-2 leading-none"

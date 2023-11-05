@@ -20,7 +20,7 @@ export function BtnGroup() {
 function BtnComponent({ btn }) {
   return (
     <a href={btn.link}>
-      <Button style={`flex justify-center items-center`}>
+      <Button style={`btn flex justify-center items-center`}>
         <Image
           src={btn.src}
           width={50}

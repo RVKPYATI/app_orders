@@ -20,9 +20,11 @@ export async function GET(req) {
       allInfo: allInfo,
     });
   }
+
   const results = await getNewOrders();
   const orders = await getOrders();
-  return NextResponse.json({ results: results, orders: orders });
+
+  return NextResponse.json({ results: [], orders: orders });
 }
 
 export async function POST(req) {

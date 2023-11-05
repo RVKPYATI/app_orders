@@ -1,37 +1,50 @@
 import { CheckCircle, HelpCircle, XCircle } from "lucide-react";
 
-export const timeRange = ["06", "09", "12", "15", "18", "21", "23"];
+export const timeRange = [
+  "06:00",
+  "09:00",
+  "12:00",
+  "15:00",
+  "18:00",
+  "21:00",
+  "23:00",
+];
 
 export const GOOGLE_SHEATS_URI =
   "https://script.google.com/macros/s/AKfycbyTz_Suw9C4Fo-fX_fxz8Lps7Tqvel5ZkHg3bYOkeKhidW4lz_xI8ferWqoPsrPY94C/exec";
 
+// URLs
 export const ORDERS_URI = "/api/orders";
+
 export const CHAT_ID = "-4010766583";
+// Statuses
 export const statuses = ["RECEIVED", "COMPLETED", "CANCELED"];
 
-export const statusesWithIcons = {
-  RECEIVED: (
-    <HelpCircle
-      color={"blue"}
-      size={20}
-      className={"mt-1"}
-    />
-  ),
-  COMPLETED: (
-    <CheckCircle
-      color={"green"}
-      size={20}
-      className={"mt-1"}
-    />
-  ),
-  CANCELED: (
-    <XCircle
-      color={"red"}
-      size={20}
-      className={"mt-1"}
-    />
-  ),
-};
+export function statusesWithIcons(size = 20) {
+  return {
+    RECEIVED: (
+      <HelpCircle
+        color={"blue"}
+        size={size}
+        className={"mt-1"}
+      />
+    ),
+    COMPLETED: (
+      <CheckCircle
+        color={"green"}
+        size={size}
+        className={"mt-1"}
+      />
+    ),
+    CANCELED: (
+      <XCircle
+        color={"red"}
+        size={size}
+        className={"mt-1"}
+      />
+    ),
+  };
+}
 
 export const buttons = [
   { src: "/logo.png", link: "", alt: "logo" },

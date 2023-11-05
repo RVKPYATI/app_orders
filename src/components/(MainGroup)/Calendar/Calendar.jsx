@@ -48,13 +48,10 @@ export function Calendar({ days, selectDays, orders, main }) {
     locale: ru,
   });
 
-  // const xsdas = orders.map(order => console.log(order.date));
-
   const daysArray = eachDayOfInterval({
     start: firstDayCurrentMonth,
     end: endOfMonth(firstDayCurrentMonth),
   });
-  // console.log(daysArray);
 
   function previousMonth() {
     const firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
@@ -104,13 +101,14 @@ export function Calendar({ days, selectDays, orders, main }) {
     <div className="flex flex-col items-center pt-2">
       <Button
         title={"Заявки"}
-        style={"mx-auto mb-6"}
+        style={`btn mx-auto mb-6 `}
         onClick={() => main(false)}
+        disabled={days.length > 0 ? false : true}
       />
-      <div className="mx-auto max-w-md border-4 border-badgeLight bg-baseColor/80 px-4 shadow-xl sm:px-7 md:max-w-4xl md:px-6">
+      <div className="glass mx-auto max-w-md border-4 border-badgeLight bg-baseColor/80 px-4 shadow-xl sm:px-7 md:max-w-4xl md:px-6">
         <div className="">
           <div className="flex items-center pt-3">
-            <h2 className="flex-auto text-lg font-semibold text-primaryHover">
+            <h2 className="flex-auto text-lg font-semibold text-baseColor">
               {format(firstDayCurrentMonth, "MMMM yyyy", {
                 locale: ru,
               }).replace(currentMonthOnly, localize[currentMonthOnly])}
@@ -120,7 +118,7 @@ export function Calendar({ days, selectDays, orders, main }) {
               onClick={previousMonth}
               className={classNames(
                 blockLeftArrow && "hidden",
-                "-my-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500",
+                "-my-1.5 flex flex-none items-center justify-center p-1.5 text-baseColor hover:text-gray-300",
               )}
             >
               <span className="sr-only">Previous month</span>
@@ -134,7 +132,7 @@ export function Calendar({ days, selectDays, orders, main }) {
               type="button"
               className={classNames(
                 blockRightArrow && "hidden",
-                "-my-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500",
+                "-my-1.5 flex flex-none items-center justify-center p-1.5 text-baseColor/50 hover:text-gray-300",
               )}
             >
               <span className="sr-only">Next month</span>
@@ -144,7 +142,7 @@ export function Calendar({ days, selectDays, orders, main }) {
               />
             </button>
           </div>
-          <div className="mt-6 grid grid-cols-7 text-center text-xs leading-6 text-gray-900">
+          <div className="mt-6 grid grid-cols-7 text-center text-xs leading-6 text-baseColor">
             <div>Пн</div>
             <div>Вт</div>
             <div>Ср</div>
@@ -153,7 +151,7 @@ export function Calendar({ days, selectDays, orders, main }) {
             <div className="font-bold text-red-500">Сб</div>
             <div className="font-bold text-red-500">Вс</div>
           </div>
-          <div className="mt-2 grid grid-cols-7 text-sm">
+          <div className="mt-2 grid grid-cols-7 text-sm ">
             {daysArray.map((day, dayIdx) => (
               <div
                 key={day.toString()}
@@ -173,17 +171,17 @@ export function Calendar({ days, selectDays, orders, main }) {
                     !days.some(d => isSameDay(d, day)) &&
                       !isToday(day) &&
                       isSameMonth(day, firstDayCurrentMonth) &&
-                      "text-gray-900",
+                      "text-baseColor/50 hover:text-gray-900",
                     !days.some(d => isSameDay(d, day)) &&
                       !isToday(day) &&
                       !isSameMonth(day, firstDayCurrentMonth) &&
                       "text-gray-400",
                     days.some(d => isSameDay(d, day)) &&
                       isToday(day) &&
-                      "bg-gray-900",
+                      "bg-blue-950",
                     days.some(d => isSameDay(d, day)) &&
                       !isToday(day) &&
-                      "bg-gray-900",
+                      "bg-blue-950",
                     !days.some(d => isSameDay(d, day)) && "hover:bg-gray-200",
                     (days.some(d => isSameDay(d, day)) || isToday(day)) &&
                       "font-semibold",
@@ -200,7 +198,6 @@ export function Calendar({ days, selectDays, orders, main }) {
                     isSameDay(startOfDay(new Date(order.date)), day),
                   ) && (
                     <div className="flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] leading-none text-white">
-                      {/* {countTripsForDate(format(day, "yyyy-MM-dd"))} */}
                       {countTripsForDate(day)}
                     </div>
                   )}
