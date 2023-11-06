@@ -1,23 +1,7 @@
-import { Inter, Irish_Grover } from "next/font/google";
-
 import { Navbar } from "@/components/Navbar/Navbar";
 
+import { inter, irish } from "./fonts";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-inter",
-});
-
-const irish = Irish_Grover({
-  subsets: ["latin"],
-  display: "swap",
-  weight: "400",
-  style: "normal",
-  display: "swap",
-  variable: "--font-irish",
-});
 
 export const metadata = {
   title: "Заявки",

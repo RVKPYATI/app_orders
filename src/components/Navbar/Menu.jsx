@@ -30,7 +30,7 @@ export function Menu() {
           />
           {/* TODO! сделать ссылку на page reports */}
           <Link
-            href="/pages/reports/"
+            href="/reports/"
             target="_blank"
             rel="noopener noreferer"
             className="z-50"

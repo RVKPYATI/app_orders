@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle, HelpCircle, X } from "lucide-react";
+import { CheckCircle, ClipboardCopy, HelpCircle, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Flip, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -109,12 +109,7 @@ ${order.comment},
 
   return (
     <tr className="border border-borderColor text-sm font-medium odd:bg-white even:bg-slate-200">
-      <td
-        className="table__cell w-16 cursor-pointer px-1 text-center "
-        onClick={copyToClipboard}
-      >
-        {order?.service}
-      </td>
+      <td className="table__cell w-16 px-1 text-center ">{order?.service}</td>
       <td className="table__cell w-8 px-1 text-center font-irish text-xl font-bold">
         {order?.seats}
       </td>
@@ -129,7 +124,7 @@ ${order.comment},
       </td>
       <td className="table__cell px-1">{order?.phone}</td>
       <td className="table__cell px-1 py-1 leading-none">{order?.comment}</td>
-      <td className="relative flex items-center justify-evenly px-1 py-1 leading-none">
+      <td className="relative flex w-44 items-center justify-between px-1 py-1 leading-none">
         <button onClick={openRadioPopup}>
           {statusesWithIcons(30)[status]}
         </button>
@@ -197,8 +192,13 @@ ${order.comment},
         >
           {isUpdating ? "Обновляю" : "Сохранить"}
         </Button>
+        <ClipboardCopy
+          color={"rgb(107 114 128"}
+          onClick={copyToClipboard}
+          className="cursor-pointer"
+        />
         <ToastContainer
-          position="top-center"
+          position="center"
           autoClose={1000}
           hideProgressBar
           newestOnTop={false}

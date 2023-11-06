@@ -1,6 +1,8 @@
 "use client";
 
 import { addDays, format, parseISO, subDays } from "date-fns";
+import { Home } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 import { Button } from "@/ui/Button/Button";
@@ -50,65 +52,74 @@ export function ReportsFilter() {
 
   return (
     <>
-      <div className="reports_filter">
+      <div className="reports_filter glass">
         <div className="p-3">
-          <h2 className="text-2xl font-bold">Статистика по заказам</h2>
-          <div>
-            <div className="text-xl">Период: </div>
-            <div className="flex gap-5">
+          <div className="flex justify-between pl-4">
+            <h2 className="mb-3 text-2xl font-bold text-baseColor">
+              Статистика по заказам
+            </h2>
+            <Link href="/">
+              <Home className="text-gray-400 hover:text-gray-200" />
+            </Link>
+          </div>
+          <div className="mb-3 flex gap-5 rounded-md text-gray-600">
+            <div className="flex items-end gap-2">
+              <span className="text-gray-200">c</span>
               <input
-                className="border p-1"
+                className="appearance-none rounded-md border p-1 "
                 type="date"
                 name="start_date"
                 id="start_date"
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
               />
-
+            </div>
+            <div className="flex items-end gap-2">
+              <span className="text-gray-200">по</span>
               <input
-                className="border p-1"
+                className="appearance-none rounded-md border p-1"
                 type="date"
                 id="end_date"
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
               />
             </div>
-            <div className=" mb-3 flex cursor-pointer gap-2 leading-6  ">
-              <div
-                className=" text-primary underline underline-offset-8 hover:text-badgeLight"
-                onClick={() => handleDateOptionClick(1)}
-              >
-                Вчера
-              </div>
-              <div
-                className="text-primary underline underline-offset-8 hover:text-badgeLight"
-                onClick={() => handleDateOptionClick(0)}
-              >
-                Сегодня
-              </div>
-              <div
-                className="text-primary underline underline-offset-8 hover:text-badgeLight"
-                onClick={() => handleDateOptionClick(7)}
-              >
-                7 дней
-              </div>
-              <div
-                className="text-primary underline underline-offset-8 hover:text-badgeLight"
-                onClick={() => handleDateOptionClick(30)}
-              >
-                30 дней
-              </div>
+          </div>
+          <div className="font-sm mb-3 flex cursor-pointer gap-2 pl-4 leading-6 text-gray-200 ">
+            <div
+              className=" underline underline-offset-8 hover:text-badgeLight"
+              onClick={() => handleDateOptionClick(1)}
+            >
+              Вчера
+            </div>
+            <div
+              className="underline underline-offset-8 hover:text-badgeLight"
+              onClick={() => handleDateOptionClick(0)}
+            >
+              Сегодня
+            </div>
+            <div
+              className="underline underline-offset-8 hover:text-badgeLight"
+              onClick={() => handleDateOptionClick(7)}
+            >
+              7 дней
+            </div>
+            <div
+              className="underline underline-offset-8 hover:text-badgeLight"
+              onClick={() => handleDateOptionClick(30)}
+            >
+              30 дней
             </div>
           </div>
         </div>
-        <div className="bg-borderColor rounded-bl-lg rounded-br-lg p-3 ">
+        <div className="mb-2 rounded-bl-lg rounded-br-lg p-3">
           <Button
             disabled={startDate === ""}
             title="Показать"
             style={
               startDate === ""
-                ? "bg-gray-300 w-40 h-10 text-xl py-1"
-                : "w-40 h-10 text-xl py-1"
+                ? "bg-gray-300 w-40 h-10 text-xl py-1 leading-none ml-4"
+                : "w-40 h-10 text-xl py-1 leading-none ml-4"
             }
             onClick={handleSubmit}
           />

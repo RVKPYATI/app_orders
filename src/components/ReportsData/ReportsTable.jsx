@@ -18,6 +18,8 @@ export function ReportsTable({ dataReports, days, loading }) {
       <Image
         className="mx-auto"
         src={loader}
+        width={50}
+        height={50}
         alt="loading"
       />
     );
@@ -65,7 +67,7 @@ export function ReportsTable({ dataReports, days, loading }) {
                 {`c ${format(
                   new Date(days.startDate),
                   "dd.MM.yyyy",
-                )} по ${format(new Date(days.endDate), "dd.MM.yyyy")} г.`}
+                )} по ${format(new Date(days.endDate), "dd.MM.yyyy")}`}
               </td>
               <td className="py-2 text-center font-semibold">
                 {allInfo.allDirections}
@@ -113,14 +115,14 @@ export function ReportsTable({ dataReports, days, loading }) {
         </Button>
         <div className="mb-6 mt-6"></div>
         <ReportTemplate data={orders} />
-        <div className="mb-6 mt-6  font-semibold">По направлениям</div>
-        <div className="mb-2 mt-6  divide-gray-400 border font-semibold italic">
+        <div className="mb-6 mt-6  text-center font-semibold">
+          По направлениям
+        </div>
+        <div className="mb-2 mt-6  divide-gray-400 font-semibold italic">
           Оренбург-Уфа
         </div>
         <ReportTemplate data={ordersOren} />
-        <div className=" mb-2  mt-6 border font-semibold italic">
-          Уфа-Оренбург
-        </div>
+        <div className=" mb-2  mt-6 font-semibold italic">Уфа-Оренбург</div>
         <ReportTemplate data={ordersUfa} />
       </div>
     );
