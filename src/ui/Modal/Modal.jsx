@@ -32,10 +32,10 @@ function Modal({ isOpen, onClose, children }) {
       >
         <div className="flex justify-end">
           <div
-            className="focus:shadow-outline-red mb-[5px] flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-red-500 text-lg font-bold  text-white hover:bg-red-600 focus:outline-none active:bg-red-700"
+            className="focus:shadow-outline-red mb-[5px] flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-red-500 text-lg font-bold  leading-none text-white hover:bg-red-600 focus:outline-none active:bg-red-700"
             onClick={onClose}
           >
-            <span className="">&times;</span>
+            <span className="mb-1">&times;</span>
           </div>
         </div>
         {children}

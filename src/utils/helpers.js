@@ -1,6 +1,7 @@
 import { addMonths, endOfMonth, startOfMonth } from "date-fns";
 
 import { statusesWithIcons } from "@/constants/constants";
+import { timeRange } from "@/constants/constants";
 
 export function getStatusIcon(sts) {
   const statusesArray = sts.split(" ");
@@ -51,4 +52,15 @@ export function getNameStatuses(status) {
   if (status === "RECEIVED") return "Получен";
   if (status === "COMPLETED") return "Выполнен";
   if (status === "CANCELED") return "Отменен";
+}
+
+export function getTimeRange(filteredOrdersByDay) {
+  const updatedTimeRange = [...timeRange];
+
+  filteredOrdersByDay.forEach(order => {
+    if (!updatedTimeRange.includes(order.time)) {
+      updatedTimeRange.push(order.time);
+    }
+  });
+  return updatedTimeRange.sort((a, b) => a.localeCompare(b));
 }

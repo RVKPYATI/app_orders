@@ -8,7 +8,8 @@ import { TableSecond } from "@/components/MainTable/TableSecond/TableSecond";
 
 import { Modal } from "@/ui/Modal/Modal";
 
-import { timeRange } from "@/constants/constants";
+
+import { getTimeRange } from "@/utils/helpers";
 
 export function TableFirst({ filteredOrders, day }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,6 +19,7 @@ export function TableFirst({ filteredOrders, day }) {
     order =>
       format(new Date(order.date), "dd-MM-yyyy") === format(day, "dd-MM-yyyy"),
   );
+  const timeRange = getTimeRange(filteredOrdersByDay);
 
   const closeModal = () => {
     setIsModalOpen(false);
