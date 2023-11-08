@@ -8,7 +8,6 @@ import { TableSecond } from "@/components/MainTable/TableSecond/TableSecond";
 
 import { Modal } from "@/ui/Modal/Modal";
 
-
 import { getTimeRange } from "@/utils/helpers";
 
 export function TableFirst({ filteredOrders, day }) {
