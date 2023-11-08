@@ -22,8 +22,6 @@ export function MainGroup({ orders }) {
     return datesStartOfDay.some(day => isSameDay(orderDate, day));
   });
 
-  //console.log("filteredOrders", filteredOrders);
-
   return (
     <>
       {firstScreen && (

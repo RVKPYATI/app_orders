@@ -63,7 +63,7 @@
   }
 
   .btn__cell {
-    @apply flex h-10 w-20 items-center rounded-md bg-primary px-1 text-sm font-extralight text-baseColor hover:border-l-4 hover:border-redBadge hover:bg-primaryHover disabled:border-none disabled:bg-gray-400 disabled:text-gray-500;
+    @apply flex h-10 w-20 justify-center items-center rounded-md bg-primary px-1 text-sm font-extralight text-baseColor hover:border-l-4 hover:border-redBadge hover:bg-primaryHover disabled:border-none disabled:bg-gray-400 disabled:text-gray-500;
   }
 
   /* REPORTS */
