@@ -26,9 +26,9 @@ export function getStatuses(sts) {
 
 export const fetcher = (...args) => fetch(...args).then(res => res.json());
 
-export function findUniqueObjects(arr1, arr2) {
-  const uniqueObjects = arr1.filter(
-    obj1 => !arr2.some(obj2 => obj1.order_id === obj2.order_id),
+export function findUniqueObjects(data, dataMany) {
+  const uniqueObjects = data.filter(
+    obj1 => !dataMany.some(obj2 => obj1.order_id === obj2.order_id),
   );
 
   return uniqueObjects;

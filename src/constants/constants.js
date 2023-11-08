@@ -11,7 +11,10 @@ export const timeRange = [
 ];
 
 export const GOOGLE_SHEATS_URI =
-  "https://script.google.com/macros/s/AKfycbyTz_Suw9C4Fo-fX_fxz8Lps7Tqvel5ZkHg3bYOkeKhidW4lz_xI8ferWqoPsrPY94C/exec";
+  "https://script.google.com/macros/s/AKfycbyg-_2zn4Io6jdQTW7eC6FPYhY81FkO0DFpr7hp-4CZtJa_9BR1H_WTGDq8Ya6KMDk8/exec";
+
+export const GOOGLE_SHEATS_URI_SITE =
+  "https://script.google.com/macros/s/AKfycbw4o298uVj3Yw1EFw365l_jj_hM9e9c5AxHtEQIJFbQbYlcPSldqcTYpFB5xn0WPd3CDA/exec";
 
 // URLs
 export const ORDERS_URI = "/api/orders";

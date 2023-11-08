@@ -40,3 +40,48 @@ export function getDirections(data) {
     statusCounts: statusCounts,
   };
 }
+
+// export function validateData(data){
+//   // Проверка и преобразование seats и time в каждом объекте
+//   const validatedData = data.map((item) => {
+//     if (typeof item.seats === 'string') {
+//       // Привести seats к числовому типу, если он строка
+//       item.seats = Number(item.seats);
+//     }
+    
+//     if (item.time.length === 4 && item.time[1] === ':') {
+//       // Привести time в формате "6:00" к "06:00"
+//       item.time = `0${item.time}`;
+//     }
+    
+//     return item;
+//   });
+
+//   return validatedData;
+// }
+
+export function validateData(data) {
+  // Проверка и преобразование seats и time в каждом объекте
+  const validatedData = data.reduce((acc, item) => {
+    if (item.date === null) {
+      // Если item.data равно null, не добавлять объект в массив
+      return acc;
+    }
+    
+    if (typeof item.seats === 'string') {
+      // Привести seats к числовому типу, если он строка
+      item.seats = Number(item.seats);
+    }
+    
+    if (item.time.length === 4 && item.time[1] === ':') {
+      // Привести time в формате "6:00" к "06:00"
+      item.time = `0${item.time}`;
+    }
+    
+    // Добавить объект в массив
+    acc.push(item);
+    return acc;
+  }, []);
+
+  return validatedData;
+}

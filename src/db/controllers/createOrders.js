@@ -8,7 +8,7 @@ export const createOrders = async body => {
       data: body,
     });
 
-    return results;
+    return "results";
   } catch (error) {
     console.log(`Произошла ошибка createOrders ${error.message}`);
   } finally {
@@ -25,8 +25,8 @@ export const createOrder = async data => {
       },
     });
 
-    const unicData = findUniqueObjects(data, dataMany);
-
+    const unicData = await findUniqueObjects(data, dataMany);
+    
     if (unicData.length === 0) {
       console.log(`Новых объектов не найдено`);
     }

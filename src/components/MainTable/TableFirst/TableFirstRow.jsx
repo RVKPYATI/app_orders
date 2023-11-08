@@ -5,6 +5,7 @@ import { direction } from "@/constants/constants";
 import { getStatusIcon, getStatuses } from "@/utils/helpers";
 
 export function TableFirstRow({ orders, time, setModal, setData, indx }) {
+  
   const filteredOrdersByTime = orders.filter(order => order.time === time);
   const filteredOrdersByTimeLeft = filteredOrdersByTime.filter(
     order => order.direction === direction[0],

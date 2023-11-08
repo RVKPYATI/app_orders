@@ -37,6 +37,7 @@ const localize = {
 };
 
 export function Calendar({ days, selectDays, orders, main }) {
+  
   const today = startOfToday();
   const [currentMonth, setCurrentMonth] = useState(
     format(today, "MMM-yyyy", { locale: ru }),
